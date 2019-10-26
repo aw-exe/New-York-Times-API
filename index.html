@@ -41,8 +41,8 @@
                     <label for="endYearInput">End Year (Optional):</label>
                     <input type="year" class="form-control" id="endYear">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="clear" class="btn btn-primary">Clear Results</button>
+                <button type="submit" class="btn btn-primary submit">Submit</button>
+                <button type="clear" class="btn btn-primary clear">Clear Results</button>
               </form>
 
 
@@ -54,16 +54,22 @@
         <script type="text/javascript"></script>
 <script>
 
-const apiKey = tivQ4BK4aQAmlV6orYmGrspC6AIa5qAX
-const searchFor = ""
-const inputBeginDate =""
-const inputEndDate = ""
-const beginDate = inputBeginDate + "0101"
-const endDate = inputEndDate + "1231"
+const apiKey = "tivQ4BK4aQAmlV6orYmGrspC6AIa5qAX";
+const searchFor = "";
+const inputBeginDate ="";
+const inputEndDate = "";
+const beginDate = inputBeginDate + "0101";
+const endDate = inputEndDate + "1231";
+
+$(".submit").on("click", function(event) {
+
+    event.preventDefault();
+    search();
+});
 
 function search(){
-    
-const queryURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchFor}&begin_date=${beginDate}&end_date=${endDate}&api-key=tivQ4BK4aQAmlV6orYmGrspC6AIa5qAX`;
+    // `;//&begin_date=${beginDate}&end_date=${endDate}
+const queryURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchFor}&api-key=tivQ4BK4aQAmlV6orYmGrspC6AIa5qAX`;
 
 $.ajax({
     url: queryURL,
